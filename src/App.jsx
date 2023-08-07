@@ -4,27 +4,28 @@ import Home from './Pages/Home';
 import NotFound from './Pages/NotFound';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
+import { GitubProvider } from './context/github/GithubContext';
 
 function App() {
   return (
-    <Router>
-      <div className="text-xl">
-        <div className="flex flex-col justify-between h-screen">
-          <Navbar />
-
-          <main className="Ccontainer mx-auto px-3 pb-12">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/notfound" element={<NotFound />} />
-              <Route path="/*" element={<NotFound />} />
-            </Routes>
-          </main>
-
-          <Footer />
+    <GitubProvider>
+      <Router>
+        <div className="text-xl">
+          <div className="flex flex-col justify-between h-screen">
+            <Navbar />
+            <main className="Ccontainer mx-auto px-3 pb-12">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/notfound" element={<NotFound />} />
+                <Route path="/*" element={<NotFound />} />
+              </Routes>
+            </main>
+            <Footer />
+          </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </GitubProvider>
   );
 }
 
