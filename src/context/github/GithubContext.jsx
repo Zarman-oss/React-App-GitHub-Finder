@@ -9,12 +9,60 @@ const GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
 export const GitubProvider = ({ children }) => {
   const initialState = {
     users: [],
+    user: {},
+    repos: [],
     loading: false,
   };
 
   const [state, dispatch] = useReducer(githubReducer, initialState);
 
-  // Search results
+  // Search single user
+  const getUser = async (login) => {
+    setLoading();
+
+    const response = await fetch(
+      `${GITHUB_URL}/users/${login}`,
+
+      {
+        headers: {
+          Authorization: `token ${GITHUB_TOKEN}`,
+        },
+      }
+    );
+
+    if (response.status === 404) {
+      window.location = '/notfound';
+    } else {
+      const data = await response.json();
+
+      dispatch({
+        type: 'GET_USER',
+        payload: data,
+      });
+    }
+  };
+
+  // Get Repos
+  const getUserRepos = async (login) => {
+    setLoading();
+
+   
+
+    const response = await fetch(`${GITHUB_URL}/users/${login}/repos`, {
+      headers: {
+        Authorization: `token ${GITHUB_TOKEN}`,
+      },
+    });
+    const { data } = await response.json();
+
+    dispatch({
+      type: 'GET_REPOS',
+      payload: data,
+    });
+  };
+
+
+  // Search User
   const searchUsers = async (text) => {
     setLoading();
 
@@ -35,12 +83,29 @@ export const GitubProvider = ({ children }) => {
     });
   };
 
+  // clear useres
+
+  const clearUsers = () => {
+    dispatch({
+      type: 'CLEAR_USERS',
+    });
+  };
+
   //  Set loading fucntion
   const setLoading = () => dispatch({ type: 'SET_LOADING' });
 
   return (
     <GithubContext.Provider
-      value={{ users: state.users, loading: state.loading, searchUsers }}
+      value={{
+        users: state.users,
+        user: state.user,
+        loading: state.loading,
+        repos: state.repos,
+        searchUsers,
+        clearUsers,
+        getUser,
+        getUserRepos
+      }}
     >
       {children}
     </GithubContext.Provider>
