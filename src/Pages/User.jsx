@@ -1,23 +1,25 @@
 import { useEffect, useContext } from 'react';
-import GithubContext from '../context/github/GithubContext';
-import Spinner from '../components/layout/Spinner';
 import { useParams, Link } from 'react-router-dom';
-import {
-  FaCodepen,
-  FaStore,
-  FaUserFriends,
-  FaUsers,
-  FaCode,
-} from 'react-icons/fa';
+import { FaStore, FaUserFriends, FaUsers, FaCode } from 'react-icons/fa';
+import Spinner from '../components/layout/Spinner';
+import RepoList from '../components/repos/RepoList';
+import GithubContext from '../context/github/GithubContext';
+import { getUserAndRepos } from '../context/github/GithubActions';
 
 function User() {
-  const { getUser, user, loading } = useContext(GithubContext);
+  const { user, loading, repos, dispatch } = useContext(GithubContext);
 
   const params = useParams();
 
   useEffect(() => {
-    getUser(params.login);
-  }, []);
+    dispatch({ type: 'SET_LOADING' });
+    const getUserData = async () => {
+      const userData = await getUserAndRepos(params.login);
+      dispatch({ type: 'GET_USER_AND_REPOS', payload: userData });
+    };
+
+    getUserData();
+  }, [dispatch, params.login]);
 
   if (loading) {
     return <Spinner />;
@@ -167,6 +169,7 @@ function User() {
             </div>
           </div>
         </div>
+        <RepoList repos={repos} />
       </div>
     );
   }

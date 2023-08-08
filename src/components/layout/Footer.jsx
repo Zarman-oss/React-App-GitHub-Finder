@@ -1,4 +1,4 @@
-import { FaInstagram,  } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
 
 function Footer() {
   const footerYear = new Date().getFullYear();
@@ -7,9 +7,8 @@ function Footer() {
     <footer className="footer p-9 bg-neutral text-neutral-content footer-center">
       <div>
         <p>
-          <FaInstagram className="inline pr-2 text-4xl" />
-           
-          {footerYear} 
+          <FaGithub className="inline pr-2 text-5xl" />
+          <p> Copyright &copy; {footerYear}  </p>
         </p>
       </div>
     </footer>
