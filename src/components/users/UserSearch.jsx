@@ -34,16 +34,18 @@ function UserSearch() {
             <div className="relative">
               <input
                 type="text"
-                className="w-full pr-40 bg-gray-200 input  input-md text-black"
-                placeholder="Search"
+                // className="w-full pr-40 bg-gray-200 input  input-md text-black "
+                className="w-full pr-40 rounded-md p-2 border focus:border-primary focus:outline-none"
+                placeholder="Enter Github Profile"
                 value={text}
                 onChange={handleChange}
               />
               <button
                 type="submit" // Fixed: 'submt' typo
-                className="absolute top-0 right-0 rounded-l-none w-36 btn btn-md"
+                // className="absolute top-0 right-0 rounded-l-none w-36 btn btn-md"
+                className="absolute top-0 right-0 w-36 ml-4 px-4 py-2 rounded-md bg-primary text-white hover:bg-primary-dark"
               >
-                Confirm
+                Search
               </button>
             </div>
           </div>
