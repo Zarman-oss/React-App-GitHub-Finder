@@ -1,7 +1,9 @@
 # GitHub Profile Finder - React Edition.
 
+# Branch new-feature
 
 ## Introduction
+
 In this project, I have transformed my original Vanilla JavaScript application into a modern and dynamic React app. The primary focus was on enhancing the user experience by creating a more intuitive and visually appealing user interface. By leveraging React's component-based architecture and powerful libraries, I was able to revamp the app's design and functionality, resulting in a more seamless and enjoyable user experience.
 
 ## Overview
@@ -34,7 +36,7 @@ To run the application locally, follow these steps:
 
 1. Clone the repository: `git clone <repository_url>`
 2. Navigate to the project folder: `cd <project_folder>`
-3. Install dependencies: `npm install`. 
+3. Install dependencies: `npm install`.
 4. Start the development server: `npm start`.
 5. Open your web browser and visit `http://localhost:3000` to access the application.
 
@@ -65,9 +67,7 @@ We would like to acknowledge the original Vanilla JavaScript version of the GitH
 
 If you have any questions or need further information, please feel free to contact us via email or open an issue in the repository.
 
-Thank you for exploring our project! We hope you enjoy using the new and improved React-powered GitHub Profile Finder. 
-
-
+Thank you for exploring our project! We hope you enjoy using the new and improved React-powered GitHub Profile Finder.
 
 # React + Vite
 
