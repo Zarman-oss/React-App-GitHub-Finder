@@ -1,7 +1,9 @@
 # GitHub Profile Finder - React Edition.
 
 # Branch new-feature
+![image](https://github.com/Zarman-oss/React-App-GitHub-Finder/assets/123334173/d3c016eb-d7e7-40fc-aa26-c69579debaa5)
 
+![image](https://github.com/Zarman-oss/React-App-GitHub-Finder/assets/123334173/0045a5b3-4ac8-4a0d-b6d8-e7c5bebbe135)
 
 
 
